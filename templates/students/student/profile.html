@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+            <img src="{{ student.user.profile.image.url }}" alt="" class="rounded-circle account-img">
+            <div class="media-body">
+                <h1 class="account-heading">{{ student.user.first_name }} {{ student.user.last_name }}</h1>
+                <p class="text-secondary">{{ student.user.email }}</p>
+                <p class="card-text">
+                    {{ student.bio }}
+                </p>
+            </div>
+        </div>
+        <legend class="border-bottom mb-4">Profile Info</legend>
+        {% if user.profile.id == student.user.profile.id %}
+            <div class="">
+                <a class="btn btn-outline-info" href="{% url 'profile_update' user.profile.id %}">
+                    Edit Profile
+                </a>
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

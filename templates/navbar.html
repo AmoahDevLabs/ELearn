@@ -1,0 +1,34 @@
+<div class="topnav" id="Topnav">
+    <a href="/" class="active">Amoah E-Learning</a>
+    <a href="{% url 'course_list' %}">Courses</a>
+    <a href="#" class="sub">Contact</a>
+    <a href="#" class="sub">About</a>
+    {% if request.user.is_authenticated %}
+        <div class="dropdown">
+            <button class="dropbtn">Account
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="{% url 'profile' user.profile.id user.username %}">Profile</a>
+                <a href="{% url 'account' %}">Manage Account</a>
+                <a href="{% url "logout" %}">Sign out</a>
+            </div>
+        </div>
+    {% else %}
+        <a href="{% url "login" %}" class="sub">Sign in</a>
+    {% endif %}
+    <a href="javascript:void(0);" class="icon" onclick="navFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<script>
+    function navFunction() {
+        var x = document.getElementById("Topnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>

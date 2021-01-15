@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+    Update Settings
+{% endblock %}
+{% block content %}
+    <h1>Update your Account Settings</h1>
+    <div class="row">
+        <div class="col-">
+            <p class="account-heading"><b>{{ user.username }}</b></p>
+            <p class="account-heading">{{ user.email }}</p>
+        </div>
+        <div class="col-6">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Account Info</legend>
+                    {{ u_form }}
+                </fieldset>
+                <div>
+                    <button class="btn-input" type="submit">Update</button>
+                </div>
+                <legend><b>Change Password</b></legend>
+                <h1 class="account-heading">
+                    <a class="btn-input" href="{% url 'password_change' %}">
+                        Change Password Here
+                    </a>
+                </h1>
+            </form>
+{#            <a href="{% url 'profile_update' user.username%}">Update profile</a>#}
+{#            <a href="{% url 'profile' user.profile.id user.username %}">View Profile</a>#}
+        </div>
+    </div>
+{% endblock %}

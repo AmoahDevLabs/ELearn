@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <div class="cover">
+        <div class="slideshow-container">
+                <h1>Join the train to get <b>Enlightened</b></h1>
+            <h2>Let's go Learning</h2>
+            {% for img in image %}
+                <div class="Slides fade">
+                    <img src="{{ img.image.url }}" style="width: 100%">
+                </div>
+            {% endfor %}
+
+            {% for page in pages %}
+                <div class="text">{{ page }}</div>
+            {% endfor %}
+        </div>
+        <br>
+        <div style="text-align: center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <br>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="{% static 'img/pro.png' %}" alt="student">
+                    <div class="container">
+                        <h3>Programming</h3>
+                        <p>Course by:</p>
+                        <p><em>Amoah Uni</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                     <img src="{% static 'img/maths.jpeg' %}" alt="student">
+                    <div class="container">
+                        <h3>Mathematics</h3>
+                        <p>Course by:</p>
+                        <p><em>Amoah Uni</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="{% static 'img/history.jpeg' %}" alt="student">
+                    <div class="container">
+                        <h3>History</h3>
+                        <p>Course by:</p>
+                        <p><em>Amoah Uni</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="{% static 'img/english.jpeg' %}" alt="student">
+                    <div class="container">
+                        <h3>English Grammar</h3>
+                        <p>Course by:</p>
+                        <p><em>Amoah Uni</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
